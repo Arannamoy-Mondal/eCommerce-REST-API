@@ -35,16 +35,16 @@ public class Product {
     private double price;
     private double discount;
     private double specialPrice;
-    @ManyToMany(fetch = FetchType.LAZY,
-        cascade = {CascadeType.PERSIST,CascadeType.MERGE}
-    )
-    @JoinTable(
-        name = "product_category",
-        joinColumns =@JoinColumn(name="product_id"),
-        inverseJoinColumns = @JoinColumn(name="category_id")
-    )
-    private List<Category> categories;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
-    private User users;
+    // @ManyToMany(fetch = FetchType.LAZY,
+    //     cascade = {CascadeType.PERSIST,CascadeType.MERGE}
+    // )
+    // @JoinTable(
+    //     name = "product_category",
+    //     joinColumns =@JoinColumn(name="product_id"),
+    //     inverseJoinColumns = @JoinColumn(name="category_id")
+    // )
+    // private List<Category> categories;
+    // @ManyToOne(fetch = FetchType.LAZY)
+    // @JoinColumn(name = "user_id")
+    // private User users;
 }

@@ -17,6 +17,7 @@ import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -30,6 +31,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@Table(name = "\"users\"")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -46,21 +48,21 @@ public class User {
     @Size(max = 30)
     private String password;
 
-    @ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE},
-        fetch = FetchType.LAZY
-    )
-    @JoinTable(name = "user_role",
-        joinColumns = @JoinColumn(name="user_id"),
-        inverseJoinColumns = @JoinColumn(name="role_id")
-    )
-    private Set<Role> roles=new HashSet<>();
+    // @ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE},
+    //     fetch = FetchType.LAZY
+    // )
+    // @JoinTable(name = "user_role",
+    //     joinColumns = @JoinColumn(name="user_id"),
+    //     inverseJoinColumns = @JoinColumn(name="role_id")
+    // )
+    // private Set<Role> roles=new HashSet<>();
 
-    @OneToMany(mappedBy = "users",orphanRemoval = true,cascade = {CascadeType.MERGE,CascadeType.PERSIST})
-    private List<Product> products=new ArrayList<>();
+    // @OneToMany(mappedBy = "users",orphanRemoval = true,cascade = {CascadeType.MERGE,CascadeType.PERSIST})
+    // private List<Product> products=new ArrayList<>();
 
 
 
-    @ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
-    @JoinColumn(name = "address_id")
-    private Address address;
+    // @ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+    // @JoinColumn(name = "address_id")
+    // private Address address;
 }

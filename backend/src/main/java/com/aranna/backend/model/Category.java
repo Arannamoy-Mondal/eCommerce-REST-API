@@ -13,6 +13,6 @@ public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer categoryId;
-    @ManyToMany(mappedBy = "categories")
-    private List<Product> products;
+    // @ManyToMany(mappedBy = "categories")
+    // private List<Product> products;
 }

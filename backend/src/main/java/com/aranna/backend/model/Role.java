@@ -24,9 +24,9 @@ public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer roleId;
-    @Enumerated(EnumType.STRING)
-    @Column(length = 20)
-    private AppRole roleName;
-    @ManyToMany(mappedBy = "roles")
-    private List<User> users;
+    // @Enumerated(EnumType.STRING)
+    // @Column(length = 20)
+    // private AppRole roleName;
+    // @ManyToMany(mappedBy = "roles")
+    // private List<User> users;
 }

@@ -28,35 +28,35 @@ public class Address {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long addressId;
 
-    @NotBlank
-    @Size(min=5)
-    private String street;
+    // @NotBlank
+    // @Size(min=5)
+    // private String street;
 
 
-    @NotBlank
-    @Size(min=5)
-    private String buildingName;
+    // @NotBlank
+    // @Size(min=5)
+    // private String buildingName;
 
-    @NotBlank
-    @Size(min=5)
-    private String city;
-
-
-    @NotBlank
-    @Size(min=5)
-    private String state;
-
-    @NotBlank
-    @Size(min=5)
-    private String country;
+    // @NotBlank
+    // @Size(min=5)
+    // private String city;
 
 
+    // @NotBlank
+    // @Size(min=5)
+    // private String state;
 
-    @NotBlank
-    @Size(min=5)
-    private String pinCode;
+    // @NotBlank
+    // @Size(min=5)
+    // private String country;
 
-    @OneToMany(mappedBy = "address")
-    private List<User> users=new ArrayList<>();
+
+
+    // @NotBlank
+    // @Size(min=5)
+    // private String pinCode;
+
+    // @OneToMany(mappedBy = "address")
+    // private List<User> users=new ArrayList<>();
 
 }
