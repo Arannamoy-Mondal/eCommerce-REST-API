@@ -3,6 +3,8 @@ package com.aranna.backend.model;
 import java.util.List;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -29,22 +31,22 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer productId;
     private String productName;
-    private byte[] image;
+
     private String description;
     private Integer quantity;
     private double price;
     private double discount;
     private double specialPrice;
-    // @ManyToMany(fetch = FetchType.LAZY,
-    //     cascade = {CascadeType.PERSIST,CascadeType.MERGE}
-    // )
-    // @JoinTable(
-    //     name = "product_category",
-    //     joinColumns =@JoinColumn(name="product_id"),
-    //     inverseJoinColumns = @JoinColumn(name="category_id")
-    // )
-    // private List<Category> categories;
+    @ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+    @JoinTable(name = "product_category", joinColumns = @JoinColumn(name = "product_id"), inverseJoinColumns = @JoinColumn(name = "category_id"))
+    @JsonManagedReference
+    private List<Category> categories;
     // @ManyToOne(fetch = FetchType.LAZY)
     // @JoinColumn(name = "user_id")
     // private User users;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "cart_id")
+    @JsonManagedReference
+    private List<Cart> carts;
+    private byte[] image;
 }
