@@ -8,10 +8,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.accounts.accounts.constants.AccountsConstants;
+import com.accounts.accounts.dto.AccountsDto;
 import com.accounts.accounts.dto.CustomerDto;
 import com.accounts.accounts.entity.Accounts;
 import com.accounts.accounts.entity.Customer;
 import com.accounts.accounts.exception.CustomerAlreadyExistException;
+import com.accounts.accounts.exception.ResourceNotFoundException;
+import com.accounts.accounts.mapper.AccountsMapper;
 import com.accounts.accounts.mapper.CustomerMapper;
 import com.accounts.accounts.repo.AccountsRepo;
 import com.accounts.accounts.repo.CustomerRepo;
@@ -45,8 +48,18 @@ public class AccountsServiceImple implements IAccountService{
 
     @Override
     public CustomerDto fetchAccount(String mobileNumber) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'fetchAccount'");
+       Customer customer=customerRepo.findByMobileNumber(mobileNumber)
+       .orElseThrow(
+        ()->new ResourceNotFoundException("Customer", "mobileNumber", mobileNumber)
+       );
+       Accounts accounts=accountsRepo.findByCustomerId(customer.getCustomerId())
+       .orElseThrow(
+        ()->new ResourceNotFoundException("Account", "customerId", customer.getCustomerId().toString())
+       );
+       CustomerDto customerDto=CustomerMapper.mapToCustomerDto(customer, new CustomerDto());
+       customerDto.setAccountsDto(AccountsMapper.mapToAccountsDto(accounts, new AccountsDto()));
+
+       return customerDto;
     }
 
     @Override
