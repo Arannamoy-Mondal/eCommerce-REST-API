@@ -1,4 +1,4 @@
-package com.aranna.backend.jwt;
+package com.aranna.backend.authentication;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
