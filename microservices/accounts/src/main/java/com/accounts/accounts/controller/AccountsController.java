@@ -1,9 +1,5 @@
 package com.accounts.accounts.controller;
 
-
-import org.springframework.beans.factory.annotation.Autowired;
-
-import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 
 import org.springframework.http.ResponseEntity;
@@ -42,8 +38,6 @@ public class AccountsController {
     // @Autowired
     private IAccountService iAccountService;
 
-    @Autowired
-    private Environment environment;
     @GetMapping("/java-version")
     public ResponseEntity<?> getJavaVersion(){
             try {
