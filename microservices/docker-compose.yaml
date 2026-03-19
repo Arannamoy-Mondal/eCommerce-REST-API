@@ -1,0 +1,41 @@
+services:
+  accounts:
+    image: "accounts:m1"
+    container_name: accounts_m1_1
+    ports:
+      - "8001:8001"
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    networks:
+      - host
+
+  loans:
+    image: "loans:latest"
+    container_name: accounts_m3_1
+    ports:
+      - "8003:8003"
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    networks:
+      - host
+
+  cards:
+    image: "loans:m2"
+    container_name: cards_m2_1
+    ports:
+      - "8002:8002"
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    networks:
+      - host
+
+
+networks:
+  host:
+    driver: "bridge"
