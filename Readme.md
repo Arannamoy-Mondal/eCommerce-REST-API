@@ -159,3 +159,16 @@ G[Accounts] --> D1[Accounts DB]
 E[Loans] --> D2[Loans DB]
 F[Cards] --> D3[Cards DB]
 ```
+
+#### Gatway Aggregator / Composition pattern:
+```mermaid
+graph LR;
+A[Web] --> C[API Gateway]
+B[Mobile] --> C[API Gateway]
+C[API Gateway] --> G[Accounts]
+C[API Gateway] --> E[Loans]
+C[API Gateway] --> F[Cards]
+G[Accounts] --> D1[Accounts DB]
+E[Loans] --> D2[Loans DB]
+F[Cards] --> D3[Cards DB]
+```
