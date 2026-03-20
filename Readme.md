@@ -29,4 +29,31 @@
 	6. Resilience & Fault Tolerance
 	7. Cloud native services
 9. Heroku cloud platform introduced 12 factor methodolgy.
-10. 
+10. Service discovery agent
+  1. Netflix Eureka:
+	`application.properties for client side`
+	```bash
+	eureka.client.service-url.defaultZone=http://localhost:8761/eureka/
+	eureka.instance.prefer-ip-address=true
+	eureka.instance.hostname=localhost
+	```
+	`application.properties for server side`
+	```
+	eureka.client.register-with-eureka=false
+	eureka.client.fetch-registry=false
+	eureka.client.service-url.defaultZone=http://localhost:8761/eureka/
+	```
+
+	`ram size allocation`
+
+	```bash
+	mvn spring-boot:run -Dspring-boot.run.jvmArguments="-Xmx2g -Xms512m"
+	```
+  2. Consul
+  3. Apache Zookeeper
+11. Load balancing
+  1. Netflix Ribbon client side
+  2. Spring Cloud Load Balancer
+
+12. Fault Tolerance
+	1. Resilience4j 
