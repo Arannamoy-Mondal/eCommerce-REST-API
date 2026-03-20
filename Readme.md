@@ -38,7 +38,7 @@
 	eureka.instance.hostname=localhost
 	```
 	`application.properties for server side`
-	```
+	```bash
 	eureka.client.register-with-eureka=false
 	eureka.client.fetch-registry=false
 	eureka.client.service-url.defaultZone=http://localhost:8761/eureka/
