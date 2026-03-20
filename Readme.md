@@ -31,27 +31,37 @@
 9. Heroku cloud platform introduced 12 factor methodolgy.
 10. Service discovery agent
   1. Netflix Eureka:
-	`application.properties for client side`
 
-	```yml
-	eureka.client.service-url.defaultZone=http://localhost:8761/eureka/
-	eureka.instance.prefer-ip-address=true
-	eureka.instance.hostname=localhost
-	```
-	`application.properties for server side`
 
-	```yml
-	eureka.client.register-with-eureka=false
-	eureka.client.fetch-registry=false
-	eureka.client.service-url.defaultZone=http://localhost:8761/eureka/
-	```
+		`application.properties for client side`
 
-	`ram size allocation`
 
-	```bash
-	mvn spring-boot:run -Dspring-boot.run.jvmArguments="-Xmx2g -Xms512m"
-	```
-	
+		```yml
+			eureka.client.service-url.defaultZone=http://localhost:8761/eureka/
+			eureka.instance.prefer-ip-address=true
+			eureka.instance.hostname=localhost
+		```
+
+
+		`application.properties for server side`
+
+
+		```yml
+		eureka.client.register-with-eureka=false
+		eureka.client.fetch-registry=false
+		eureka.client.service-url.defaultZone=http://localhost:8761/eureka/
+		```
+
+
+		`ram size allocation`
+
+
+
+		```bash
+		mvn spring-boot:run -Dspring-boot.run.jvmArguments="-Xmx2g -Xms512m"
+		```
+
+
   2. Consul
   3. Apache Zookeeper
 11. Load balancing
