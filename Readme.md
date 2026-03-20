@@ -103,8 +103,8 @@
 
 14. Design pattern around API gateway
 
-```graph LR;
-
+```mermaid
+graph LR;
 A[Web] --> C[API Gateway]
 B[Mobile] --> C[API Gateway]
 C[API Gateway] --> D[Accounts]
