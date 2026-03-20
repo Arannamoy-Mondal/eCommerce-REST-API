@@ -107,7 +107,10 @@
 graph LR;
 A[Web] --> C[API Gateway]
 B[Mobile] --> C[API Gateway]
-C[API Gateway] --> D[Accounts]
+C[API Gateway] --> G[Accounts]
 C[API Gateway] --> E[Loans]
 C[API Gateway] --> F[Cards]
+G[Accounts]-->D[DB]
+E[Loans]-->D[DB]
+D[DB]-->D[DB]
 ```
