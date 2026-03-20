@@ -70,3 +70,15 @@
 
 12. Fault Tolerance
 	1. Resilience4j 
+
+13. Gateway: Reactive gateway
+	`For avoiding any kind of issue use spring 4.0.4 and reactive gateway`
+	```yml
+		management.endpoints.web.exposure.include=*
+		management.endpoint.gateway.access=unrestricted
+		spring.cloud.discovery.enabled=true
+		spring.cloud.gateway.server.webflux.discovery.locator.enabled=true
+		spring.cloud.gateway.server.webflux.discovery.locator.lower-case-service-id=true
+		spring.main.web-application-type=reactive
+	```
+	
