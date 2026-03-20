@@ -103,6 +103,8 @@
 
 14. Design pattern around API gateway
 
+#### API Gateway pattern
+
 ```mermaid
 graph LR;
 A[Web] --> C[API Gateway]
@@ -110,7 +112,50 @@ B[Mobile] --> C[API Gateway]
 C[API Gateway] --> G[Accounts]
 C[API Gateway] --> E[Loans]
 C[API Gateway] --> F[Cards]
-G[Accounts] --> D1[DB]
-E[Loans] --> D2[DB]
-F[Cards] --> D3[DB]
+G[Accounts] --> D1[Accounts DB]
+E[Loans] --> D2[Loans DB]
+F[Cards] --> D3[Cards DB]
+```
+
+#### Gateway Routing Pattern
+```mermaid
+graph LR;
+A[Web] --> C[API Gateway]
+B[Mobile] --> C[API Gateway]
+C[API Gateway] --> G[Accounts]
+C[API Gateway] --> E[Loans]
+C[API Gateway] --> F[Cards]
+G[Accounts] --> D1[Accounts DB]
+E[Loans] --> D2[Loans DB]
+F[Cards] --> D3[Cards DB]
+```
+
+#### Gateway Offloading pattern: Cross cutting concerns such as secuirty, caching, rate limiting, monitoring, load balancing,ssl termination.
+```mermaid
+graph LR;
+A[Web] --> C[API Gateway]
+B[Mobile] --> C[API Gateway]
+C[API Gateway] --> G[Accounts]
+C[API Gateway] --> E[Loans]
+C[API Gateway] --> F[Cards]
+G[Accounts] --> D1[Accounts DB]
+E[Loans] --> D2[Loans DB]
+F[Cards] --> D3[Cards DB]
+```
+
+#### BFF: Backend For Frontend Pattern
+
+```mermaid
+graph LR;
+A[Web] --> C1[API Web Gateway]
+B[Mobile] --> C2[API Mobile Gateway]
+C1[API Web Gateway] --> G[Accounts]
+C1[API Web Gateway] --> F[Cards]
+C1[API Web Gateway] --> E[Loans]
+C2[API Mobile Gateway] --> G[Accounts]
+C2[API Mobile Gateway] --> F[Cards]
+C2[API Mobile Gateway] --> E[Loans]
+G[Accounts] --> D1[Accounts DB]
+E[Loans] --> D2[Loans DB]
+F[Cards] --> D3[Cards DB]
 ```
