@@ -71,9 +71,9 @@ mvn spring-boot:run -Dspring-boot.run.jvmArguments="-Xmx2g -Xms512m"
 # 12. Fault Tolerance
 1. Resilience4j: 
 	1. Circuit breaker: Used to stop making requests when a service invoked is failing.
-         1. Open: Request failing
-         2. Closed: Failure rate above threshold
-         3. Half Open: Failure rate below threshold		
+         1. Open: Request failure rate above threshold
+         2. Closed: All is normal.
+         3. Half Open: Request failure rate below threshold		
 	2. Fallback: Alternative paths to failing requests
 	3. Retry: Used to make retries when  a service has temporarily failed
 	4. Rate limit: Limits the number of calls that a service receives in a time
